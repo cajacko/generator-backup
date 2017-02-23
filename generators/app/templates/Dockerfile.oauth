@@ -1,0 +1,7 @@
+FROM golang:latest
+
+RUN go get -u github.com/odeke-em/drive/cmd/drive
+
+RUN cd ~ && drive init gdrive
+
+CMD ["tail", "-f", "/dev/null"]

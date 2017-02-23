@@ -1,0 +1,9 @@
+FROM golang:latest
+
+RUN go get -u github.com/odeke-em/drive/cmd/drive
+
+ADD credentials.json /root
+
+RUN cd ~ && drive init -service-account-file credentials.json gdrive
+
+CMD ["tail", "-f", "/dev/null"]
